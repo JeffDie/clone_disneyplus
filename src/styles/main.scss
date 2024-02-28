@@ -2,6 +2,10 @@
 @use 'hero';
 @use 'shows';
 @use 'plans';
+@use 'available-diveces';
+@use 'faq';
+@use 'footer';
+@use 'header';
 
 @font-face {
     font-family: Avenir;
@@ -20,8 +24,8 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    
     font-family: Avenir, sans-serif;
+    list-style: none;
 }
 
 body{
@@ -70,14 +74,82 @@ body{
 }
 
 .button {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 100%;
     height: 60px;
     font-size: 18px;
     color:  variaveis.$corTextoSecundaria;
-    background-color: #6421ff;
+    background-color: variaveis.$corDeFundoBotãoPrimario;
     text-transform: uppercase;
     border-radius: 4px;
-    margin-top: 2vw;
-    margin-bottom: 8px;
+    text-decoration: none;
+    padding: 8px 14px;
+    letter-spacing: 1px;
+    border: 1px solid variaveis.$corDeFundoBotãoPrimario;
+
+    &:hover {
+        background-color: lighten(variaveis.$corDeFundoBotãoPrimario, 3%);
+    }
+
+    &--secundary {
+        background-color: variaveis.$corDeFundoBotãoSecundario;
+        border-color: variaveis.$corDeFundoBotãoSecundario;
+
+        &:hover {
+            background-color: lighten(variaveis.$corDeFundoBotãoSecundario, 3%);
+        }
+    }
+
+    &--dark {
+        background-color: variaveis.$corDeFundoBotãoDark;
+        border-color: variaveis.$corTextoSecundaria;
+
+        &:hover {
+            background-color: variaveis.$corTextoSecundaria;
+            color: variaveis.$corDeFundo;
+        }
+    }
+}
+
+.image-text-section {
+    padding: 5.6vw;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+
+    img {
+        max-width: 100%;
+    }
+
+    &__text-container {
+        padding: 2vw;
+
+        h2 {
+            margin-bottom: 24px;
+        }
+    }
+
+    &--image-full-width{
+        display: block;
+        position: relative;
+
+        img {
+            width: 100%;
+        }
+
+        &__text-container {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            height: 100%;
+            width: calc(50% - 5.6vw);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+    }
+
+    
 }
